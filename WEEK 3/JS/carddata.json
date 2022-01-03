@@ -1,0 +1,81 @@
+
+     card_data = [
+    {
+        
+        "Name":"Mozes",
+    "id":"123456",
+    "skills":"ATP",
+    "Project":" Internal",
+"HCM":"Marcone",
+"Gender" :"Male"
+
+    },
+    {
+       
+    "Name":"Rana ",
+    "id":"123456",
+    "skills":"Art Education",
+    "Project":"Cognizant Internal",
+    "HCM":"Johnsee",
+    "Gender" :"Male"
+    },{
+    "Name":"Dena ",
+    "id":"123456",
+    "skills":"ReactJS,Angular,JS",
+    "Project":"Cognizant Internal",
+    "HCM":"Kunzler",
+    "Gender" :"Male"
+    },{
+    "Name":"Lissie ",
+    "id":"123456",
+    "skills":"Kodaly",
+    "Project":"Cognizant Internal",
+    "HCM":"Riceards ",
+    "Gender" :"Female"
+    },{
+    "Name":"Halette ",
+    "id":"123456",
+    "skills":"MXF",
+    "Project":"Cognizant Internal",
+    "HCM":"Paterson",
+    "Gender" :"Male"
+    },{
+    "Name":"Maryl ",
+    "id":"123456",
+    "skills":"FSD",
+    "Project":"Cognizant Internal",
+    "HCM":"Darville",
+    "Gender" :"Female"
+    },{
+    "Name":"Martino ",
+    "id":"123456",
+    "skills":"Httpd",
+    "Project":"Cognizant Internal",
+    "HCM":"Stillmann",
+    "Gender" :"Male"
+    },{
+    "Name":"Letisha ",
+    "id":"123456",
+    "skills":"ReactJS,Angular,JS",
+    "Project":"Cognizant Internal",
+    "HCM":"Whittlesea",
+    "Gender" :"Female"
+    },
+    {
+    "Name":"Bunny ",
+    "id":"123457",
+    "skills":"HBDI",
+    "Project":"Cognizant Internal",
+    "HCM":"Garrick",
+    "Gender" :"Male"
+    },
+    {
+    "Name":"Israel ",
+    "id":"123458",
+    "skills":"IED",
+    "Project":"Cognizant Internal",
+    "HCM":"Israel ",
+    "Gender" :"Male"
+    }
+
+] 
