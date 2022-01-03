@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WEEK-3</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+    />
+    <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+
+    <script src="js/cards.js"></script>
+    <script src="js/carddata.JSON"></script>
+    <script>
+      function myFunction() {
+        var x = document.getElementById("myDIV");
+        if (x.style.display === "none") {
+          x.style.display = "block";
+        } else {
+          x.style.display = "none";
+        }
+      }
+    </script>
+    <script>
+      var gearPage = document.getElementById("GearPage");
+      if (null != gearPage) {
+        gearPage.parentNode.removeChild(gearPage);
+        document.title = "Error";
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="container mt-5">
+      <div>
+        <button class="btn text-white pull-right" onclick="myFunction()">
+          <i class="fa fa-th-large" style="font-size: 30px"></i>
+        </button>
+        <br /><br />
+        <br />
+        <br />
+        <div id="myDIV">
+          <div class="tbl_data"></div>
+        </div>
+        <br /><br />
+
+        <button
+          class="btn text-white pull-right"
+          type="button"
+          data-toggle="collapse"
+          data-target="#table1"
+          aria-expanded="false"
+          aria-controls="table1"
+        >
+          <i class="fa fa-bars" style="font-size: 30px"></i>
+        </button>
+      </div>
+      <br /><br /><br />
+
+      <script type="text/javascript">
+        $(document).ready(function ($) {
+          
+          var random_id = function () {
+            var id_num = Math.random().toString(9).substr(2, 3);
+            var id_str = Math.random().toString(36).substr(2);
+
+            return id_num + id_str;
+          };
+
+          var tbl = "";
+          tbl += '<table class="table">';
+
+          tbl += "<thead>";
+          tbl += "<tr>";
+          tbl += "<th>Name</th>";
+          tbl += "<th>ID</th>";
+          tbl += "<th>Skills</th>";
+          tbl += "<th>Project</th>";
+          tbl += "<th>HCM</th>";
+          tbl += "<th></th>";
+          tbl += "</tr>";
+          tbl += "</thead>";
+          tbl += "<tbody>";
+         
+          $.each(card_data, function (index, val) {
+            var row_id = random_id();
+            tbl += '<tr row_id="' + row_id + '">';
+            tbl +=
+              '<td ><div class="row_data" edit_type="click" col_name="Name">' +
+              val["Name"] +
+              "</div></td>";
+            tbl +=
+              '<td ><div class="row_data" edit_type="click" col_name="ID">' +
+              val["id"] +
+              "</div></td>";
+            tbl +=
+              '<td ><div class="row_data" edit_type="click" col_name="Skills">' +
+              val["skills"] +
+              "</div></td>";
+            tbl +=
+              '<td ><div class="row_data" edit_type="click" col_name="Project">' +
+              val["Project"] +
+              "</div></td>";
+            tbl +=
+              '<td ><div class="row_data" edit_type="click" col_name="HCM">' +
+              val["HCM"] +
+              "</div></td>";
+            tbl += "<td>";
+            tbl +=
+              '<span class="btn_edit" > <a href="#" class="btn btn-link " row_id="' +
+              row_id +
+              '" > <span class="iconify" data-icon="akar-icons:edit" style="color:black" data-width="25" data-height="25"></span></a> </span>';
+
+            tbl +=
+              '<span class="btn_save"> <a href="#" class="btn btn-link"  row_id="' +
+              row_id +
+              '"> <span class="iconify" data-icon="ant-design:save-twotone" style="color: green;" data-width="25" data-height="25"></span></a> </span>';
+            tbl +=
+              '<span class="btn_cancel"> <a href="#" class="btn btn-link" row_id="' +
+              row_id +
+              '"> <span class="iconify" data-icon="flat-color-icons:cancel" style="color: green;" data-width="25" data-height="25"></span></a> </span>';
+            tbl += "</td>";
+            tbl += "</tr>";
+          });
+          tbl += "</tbody>";
+          tbl += "</table>";
+          $(document).find(".tbl_data1").html(tbl);
+          $(document).find(".btn_save").hide();
+          $(document).find(".btn_cancel").hide();
+          $(document).on("click", ".row_data", function (event) {
+            event.preventDefault();
+            if ($(this).attr("edit_type") == "button") {
+              return false;
+            }
+
+            $(this).closest("div").attr("contenteditable", "true");
+            $(this).addClass("bg-light").css("padding", "5px");
+
+            $(this).focus();
+          });
+          $(document).on("focusout", ".row_data", function (event) {
+            event.preventDefault();
+            if ($(this).attr("edit_type") == "button") {
+              return false;
+            }
+            var row_id = $(this).closest("tr").attr("row_id");
+            var row_div = $(this)
+              .removeClass("bg-light") 
+              .css("padding", "");
+
+            var col_name = row_div.attr("col_name");
+            var col_val = row_div.html();
+            var arr = {};
+            arr[col_name] = col_val;
+
+            $.extend(arr, {
+              row_id: row_id,
+            });
+            $(".post_msg").html(
+              '<pre class="bg-success">' +
+                JSON.stringify(arr, null, 2) +
+                "</pre>"
+            );
+          });
+          $(document).on("click", ".btn_edit", function (event) {
+            event.preventDefault();
+            var tbl_row = $(this).closest("tr");
+            var row_id = tbl_row.attr("row_id");
+            tbl_row.find(".btn_save").show();
+            tbl_row.find(".btn_cancel").show();
+            
+            tbl_row.find(".btn_edit").hide();
+            tbl_row
+              .find(".row_data")
+              .attr("contenteditable", "true")
+              .attr("edit_type", "button")
+              .addClass("bg-warning")
+              .css("padding", "3px");
+            tbl_row.find(".row_data").each(function (index, val) {
+              $(this).attr("original_entry", $(this).html());
+            });
+          });
+
+          $(document).on("click", ".btn_cancel", function (event) {
+            event.preventDefault();
+            var tbl_row = $(this).closest("tr");
+            var row_id = tbl_row.attr("row_id");
+            tbl_row.find(".btn_save").hide();
+            tbl_row.find(".btn_cancel").hide();
+            tbl_row.find(".btn_edit").show();
+            tbl_row
+              .find(".row_data")
+              .attr("edit_type", "click")
+              .removeClass("bg-warning")
+              .css("padding", "");
+            tbl_row.find(".row_data").each(function (index, val) {
+              $(this).html($(this).attr("original_entry"));
+            });
+          });
+          $(document).on("click", ".btn_save", function (event) {
+            event.preventDefault();
+            var tbl_row = $(this).closest("tr");
+            var row_id = tbl_row.attr("row_id");
+            tbl_row.find(".btn_save").hide();
+            tbl_row.find(".btn_cancel").hide();
+            tbl_row.find(".btn_edit").show();
+            tbl_row
+              .find(".row_data")
+              .attr("edit_type", "click")
+              .removeClass("bg-warning")
+              .css("padding", "");
+            var arr = {};
+            tbl_row.find(".row_data").each(function (index, val) {
+              var col_name = $(this).attr("col_name");
+              var col_val = $(this).html();
+              arr[col_name] = col_val;
+            });
+            $.extend(arr, {
+              row_id: row_id,
+            });
+            $(".post_msg").html(
+              '<pre class="bg-success">' +
+                JSON.stringify(arr, null, 2) +
+                "</pre>"
+            );
+          });
+        });
+      </script>
+    </div>
+  </body>
+  <div class="container mt-5 mb-5">
+    <div class="panel panel-default">
+      <div class="panel-body" id="table1">
+        <div class="tbl_data1"></div>
+      </div>
+    </div>
+  </div>
+</html>
