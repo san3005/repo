@@ -1,0 +1,114 @@
+body {
+  background-color: #003458;
+}
+
+/* Float four columns side by side */
+
+/* Remove extra left and right margins, due to padding */
+
+.row {
+  margin: 0 -5px;
+}
+
+button {
+  color: aqua;
+}
+
+/* Clear floats after the columns */
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 30px;
+  }
+}
+
+/* Style the counter cards */
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  /* text-align: center; */
+  background-color: white;
+}
+
+.card-body {
+  margin-left: 10%;
+}
+
+.editbtn {
+  text-align: right;
+}
+
+.fa {
+  font-size: 25px;
+}
+
+.fa-pencil-square-o {
+  color: black;
+}
+
+.fa-times-circle {
+  color: red;
+}
+
+.bg-warning {
+  background-color: white;
+}
+
+[contenteditable="true"]:active,
+[contenteditable="true"]:focus {
+  border: 5px solid #003458;
+  outline: none;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075), 0 0 3px #003466;
+}
+
+/* -------------- */
+
+table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+table,
+td,
+th {
+  border: 5px solid #003458;
+  background-color: white;
+  margin-bottom: 0px !important;
+  outline: 0;
+  padding: 0px;
+}
+
+tr {
+  border: 5px solid #003458;
+}
+
+[contenteditable="true"]:active,
+[contenteditable="true"]:focus {
+  border: 5px solid #003458;
+  outline: none;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075), 0 0 3px #003466;
+}
+
+.panel-body {
+  padding: 0px !important;
+  margin: 0px !important;
+}
+
+.panel-default {
+  border: 0px;
+}
+
+.panel {
+  padding: 0px !important;
+  margin: 0px !important;
+}
