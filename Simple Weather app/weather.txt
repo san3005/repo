@@ -1,0 +1,1 @@
+simple weather app designed suing bootstrap 5 ,css and openweatherapi
