@@ -1,0 +1,26 @@
+.card {
+  text-align: center;
+position:absolute;
+left:50%;
+top:30%;
+transform: translate(-50%,-50%);  
+border:2px solid cornflowerblue;
+padding:30px 40px;
+
+}
+.card{
+}
+
+input[type=text]{
+  width:80%;
+  margin-top:40px;
+  border:1px solid #144361
+  
+}
+input[type=text]:focus{
+  border:solid 2px  #87b2cc;
+  border-radius: 1px;
+  outline: none;
+}
+input[type=submit]{
+  margin: 40px 50px;}
