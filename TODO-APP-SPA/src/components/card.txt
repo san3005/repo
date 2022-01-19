@@ -1,0 +1,156 @@
+import * as React from "react";
+import Grid from "@mui/material/Grid";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
+import Button from "@mui/material/Button";
+import Paper from "@mui/material/Paper";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import Delete from "@mui/icons-material/DeleteSharp";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+
+export default function App() {
+  const TODOS = "http://localhost:8000/todos/";
+  const [temp, setTemp] = React.useState("");
+  const [todos, setTodos] = React.useState([]);
+  React.useEffect(() => {
+    fetch(TODOS)
+      .then((res) => res.json())
+      .then((data) => {
+        setTodos(data);
+        console.log(data);
+      });
+  }, []);
+
+  const handleChange = (e) => {
+    setTemp(e.target.value);
+  };
+
+  const handleClick = (e) => {
+    const newTodo = [
+      ...todos,
+      { text: temp, done: false, id: todos.length + 1 },
+    ];
+
+    fetch(TODOS, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ text: temp, done: false }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+    setTodos(newTodo);
+  };
+
+  const todoDelete = (id) => {
+    const Todos = [...todos];
+    const newTodos = Todos.filter((data) => data.id !== id);
+    fetch(TODOS + id, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+
+    setTodos(newTodos);
+  };
+
+  const todoDone = (value) => {
+    const doneObject = { id: value.id, text: value.text, done: true };
+    const newTodo = todos.map((item) => {
+      return item.id === value.id ? doneObject : item;
+    });
+    console.log(newTodo);
+    setTodos(newTodo);
+
+    fetch(TODOS + value.id, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ done: true }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
+
+  const todoText = "TODO";
+
+  const customList = (items, text) => (
+    <Paper
+      sx={{ width: 200, height: 300, overflow: "auto", marginTop: "3rem" }}
+    >
+      <TextField
+        disabled
+        id="filled-disabled"
+        label=""
+        defaultValue={text}
+        variant="filled"
+      />
+      <List dense component="div" role="list">
+        {items.map((value, i) => {
+          const labelId = `transfer-list-item-${value}-label`;
+
+          return (
+            <ListItem key={value} role="listitem" button>
+              <ListItemText
+                sx={value.done ? { textDecoration: "line-through" } : {}}
+                id={labelId}
+                primary={`${value.text}`}
+              />
+              <CheckCircleIcon onClick={() => todoDone(value)} />
+              <Delete onClick={() => todoDelete(value.id)} />
+            </ListItem>
+          );
+        })}
+        <ListItem />
+      </List>
+    </Paper>
+  );
+
+  return (
+    <>
+      <Grid container spacing={2} justifyContent="center" alignItems="center">
+        <Box
+          sx={{
+            width: 500,
+            maxWidth: "100%",
+            marginTop: "3rem",
+          }}
+        >
+          <TextField
+            fullWidth
+            label="Enter Todo"
+            id="fullWidth"
+            value={temp}
+            onChange={(e) => handleChange(e)}
+          />
+        </Box>
+        <Button
+          variant="contained"
+          color="success"
+          onClick={(e) => handleClick(e)}
+          sx={{
+            marginTop: "3rem",
+            marginLeft: "3rem",
+          }}
+        >
+          Add Todo
+        </Button>
+      </Grid>
+
+      <Grid container spacing={2} justifyContent="center" alignItems="center">
+        <Grid item>{customList(todos, todoText)}</Grid>
+        <Grid item></Grid>
+      </Grid>
+    </>
+  );
+}
