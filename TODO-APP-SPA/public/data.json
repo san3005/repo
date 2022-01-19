@@ -1,0 +1,22 @@
+{
+  "todos": [
+    {
+      "task": "hello",
+      "description": "mike",
+      "done": false,
+      "id": 1
+    },
+    {
+      "task": "whtausp?",
+      "description": "its a check",
+      "done": false,
+      "id": 2
+    },
+    {
+      "task": "all good",
+      "description": "yoo",
+      "done": false,
+      "id": 3
+    }
+  ]
+}
