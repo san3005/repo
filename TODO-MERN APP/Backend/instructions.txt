@@ -1,0 +1,10 @@
+create a folder and npm init to generate a package.json
+
+install express,momgoose,corse-npm i express mongoose corse
+
+npm i -D nodemon -to install developement dependencies of nodemon
+
+In package.json in scripts-"start":"nodemon server.js"-to set the starting point to server.js
+
+
+npm start to start the server
