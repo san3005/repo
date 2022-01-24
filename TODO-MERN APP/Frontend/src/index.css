@@ -1,0 +1,173 @@
+/* .cards.checked{
+  background-image: linear-gradient(to right,#34e89e,#0f3433);
+  width:20px;
+  height:20px;
+  border-radius:999px;
+  margin-right:16px;
+
+} */
+
+body{
+background-image:linear-gradient(to right,#abdcff 10%,#0396ff);
+box-sizing:border-box;}
+.cards{
+  background-image:   linear-gradient(to right, #13f1fc,#036ed9);
+  margin-bottom: 10px;
+  margin-left: 5rem;
+  width:32rem;
+  height:13rem;
+  border-radius: 10px;
+  box-shadow: 5px 4px black;
+  
+  
+
+}.todos{
+  display: flex;
+  flex-wrap: wrap;
+  width:95%;
+  margin-left: 5rem;
+}
+.text{
+  color:white;
+  font-size:24px;
+  font-weight: 600px;
+  margin-left: 4rem;
+  margin-bottom: 2rem;
+}
+ .cards .checkbox{
+  width:20px;
+  height:20px;
+  margin-bottom:0%;
+  margin-top: 2%;
+  border-radius: 999px;
+  background-color: white;
+  opacity: 0.5;
+  transition: 0.4s;
+color: transparent;
+align-items: center;}
+
+.cards .text.is-complete 
+{
+text-decoration: line-through;
+color:blueviolet}
+
+.checkbox.is-complete{
+  background-image: linear-gradient(to left ,red,skyblue);
+opacity:0.8;
+background-color: white;
+color:transparent;
+  width:20px;
+  height:20px;
+  border-radius: 999px;
+  margin-right:16px;
+
+  transition:0.4s;
+}
+.plus{
+  position: fixed;
+  bottom:5%;
+  right:10px;
+  height:40px;
+  display:flex;
+align-items: center;
+justify-content: center;
+  width:40px;
+  
+  font-size: 40px;
+  padding: 40px;
+  font-weight: 800;
+  background-color: #121212;
+  background-image: linear-gradient(to right,#009ffd,#2a2a72);
+color:white;  border-radius: 999px;
+}
+.card{
+  position: fixed;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  width:26rem;
+  height:12rem;
+  border-radius: 20px;
+  background-image: linear-gradient(to right,#83eaf1,#63a4ff);
+  transition: 0.5s;
+  box-shadow: 5px 4px #000000;
+
+}
+h5{
+  font-weight: 700;
+  text-align: center;
+  color:white;
+  margin-top: 0.5rem;
+}
+.input1{
+width:15rem;
+
+display: flex;
+margin-top:1.4rem;
+margin-left:5rem;
+border-radius:6px;
+box-shadow:rgba(0,0,0,0.2)
+}
+.input1:focus{
+  border-color: silver;
+  outline: transparent;
+}
+.button{
+  top:65%;
+  left:50%;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  background-image: linear-gradient(to right,#09c6f9,#045de9);
+  color:white;
+  transition: 0.5s;
+  border-color: 2px solid white;
+  border-radius: 8px;
+  box-shadow:0 0 4px #7f5a83
+}
+.button:hover{
+  background-position: right center;
+  color:#fff;
+  box-shadow: 0 0 4px #eee;
+
+  background-image: linear-gradient(to left,#a4bfef,#6a93cb);
+
+}
+.cancel{
+  top:10%;
+  left:96%;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  transition: 0.5s;
+  color:white; 
+  width:30px;
+  height:30px;
+  border-radius: 999px; 
+
+font-size: 20px;
+font-weight: 600;
+
+}
+
+.delete  {
+ margin-left:80%;
+  transition: 0.5s;
+  background-color: red;
+  color: white;
+  padding:4px 4px;
+  border-radius: 4px;
+  box-shadow: none;
+outline: none;}
+.btn{
+  display: flex;
+margin-left:80%;
+margin-bottom:2%;
+border-radius: 4px;
+}
+.btn:hover{
+  padding-left: 5px;
+  background-image:linear-gradient(to right,#09c6f9,#045de9);
+}
+.delete:hover{
+  padding-left:5px;
+  background-image:linear-gradient(to right,#fe0944,#feae96)
+}
