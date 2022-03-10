@@ -1,0 +1,33 @@
+[{
+  "_id": {
+    "$oid": "6229c79f04e4750470474744"
+  },
+  "reviews": [
+    {
+      "Name": "abcd",
+      "Comments": "good book"
+    }
+  ],
+  "Name": " hbit",
+  "Author": "abcd",
+  "Img": "/Images/img4.jpg",
+  "Category": "Self-Discipline",
+  "Language": "English",
+  "Description": "IT IS A GOOD BOOK"
+},{
+  "_id": {
+    "$oid": "6229d0c504e4750470474746"
+  },
+  "reviews": [
+    {
+      "Name": "abcd",
+      "Comments": "good book"
+    }
+  ],
+  "Name": " atomic habits",
+  "Author": "abcd",
+  "Img": "/Images/img4.jpg",
+  "Category": "Self-Discipline",
+  "Language": "English",
+  "Description": "IT IS A GOOD BOOK"
+}]
